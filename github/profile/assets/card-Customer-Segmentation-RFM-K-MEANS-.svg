@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 232" width="600" height="232" role="img" aria-label="Customer Segmentation: RFM scores, K-Means segments and churn prediction.">
+<style>
+  .pulse{stroke-dasharray:110 1590;animation:run 5s linear infinite;animation-delay:-2.4s}
+  .rule{animation:rule 5s ease-in-out infinite;animation-delay:-2.4s}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes bolt{0%,100%{opacity:.92}6%{opacity:.35}9%{opacity:1}44%{opacity:.9}47%{opacity:.5}50%{opacity:1}}
+  @keyframes arc{0%,100%{opacity:0}5%{opacity:1}12%{opacity:0}46%{opacity:.9}52%{opacity:0}}
+  @keyframes run{to{stroke-dashoffset:-1700}}
+  @keyframes rule{0%,100%{width:44px}50%{width:150px}}
+  @keyframes grow{0%,100%{transform:scaleX(.2)}50%{transform:scaleX(1)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22b45a" stop-opacity=".17"/><stop offset=".6" stop-color="#0f1728" stop-opacity="0"/></linearGradient>
+  <pattern id="d" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#22b45a"/></pattern>
+  <linearGradient id="f" x1="1" y1="0" x2=".4" y2=".9"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <mask id="m"><rect width="600" height="232" fill="url(#f)"/></mask><clipPath id="c"><path d="M12 8H566a26 26 0 0 1 26 26V220a4 4 0 0 1 -4 4H34a26 26 0 0 1 -26 -26V12a4 4 0 0 1 4 -4z"/></clipPath>
+  <filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<path d="M12 8H566a26 26 0 0 1 26 26V220a4 4 0 0 1 -4 4H34a26 26 0 0 1 -26 -26V12a4 4 0 0 1 4 -4z" fill="#101829"/>
+<g clip-path="url(#c)"><rect width="600" height="232" fill="url(#bg)"/><rect width="600" height="232" fill="url(#d)" mask="url(#m)" opacity=".5"/>
+  <rect class="rule" x="8" y="8" width="44" height="3" fill="#22b45a"/></g>
+<path d="M12 8H566a26 26 0 0 1 26 26V220a4 4 0 0 1 -4 4H34a26 26 0 0 1 -26 -26V12a4 4 0 0 1 4 -4z" fill="none" stroke="#fff" stroke-opacity=".1"/>
+<path class="pulse" d="M12 8H566a26 26 0 0 1 26 26V220a4 4 0 0 1 -4 4H34a26 26 0 0 1 -26 -26V12a4 4 0 0 1 4 -4z" fill="none" stroke="#22b45a" stroke-width="2.2" stroke-linecap="round" filter="url(#g)"/>
+<path d="M580 194v18h-18" fill="none" stroke="#22b45a" stroke-opacity=".8"/>
+<path d="M36 34H66a12 12 0 0 1 12 12V76a2 2 0 0 1 -2 2H46a12 12 0 0 1 -12 -12V36a2 2 0 0 1 2 -2z" fill="#22b45a" fill-opacity=".13" stroke="#22b45a" stroke-opacity=".55"/>
+<g transform="translate(45 45) scale(.92)" fill="none" stroke="#22b45a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" color="#22b45a"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5c2.2.2 3.9 1.9 4.5 4.5"/></g>
+<text x="94" y="52" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="13" letter-spacing="2.5" fill="#22b45a">04</text>
+<text x="94" y="76" font-family="'Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif" font-weight="700" font-size="25" fill="#eef2f7">Customer Segmentation</text>
+<text font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="15" fill="#9aa8ba"><tspan x="34" y="118">RFM scores, K-Means segments and</tspan><tspan x="34" y="141">churn prediction.</tspan></text>
+<rect x="34" y="174" width="45.2" height="26" rx="3" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="44" y="191.500" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="13" fill="#c9d4e3">RFM</text><rect x="87.2" y="174" width="78.80000000000001" height="26" rx="3" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="97.2" y="191.500" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="13" fill="#c9d4e3">K-Means</text><rect x="174" y="174" width="120.80000000000001" height="26" rx="3" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="184" y="191.500" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="13" fill="#c9d4e3">scikit-learn</text>
+</svg>

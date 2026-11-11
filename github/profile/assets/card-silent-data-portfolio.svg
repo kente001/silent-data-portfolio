@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 232" width="600" height="232" role="img" aria-label="The Silent Data: My portfolio: living charts, a thinking brain and a little magic.">
+<style>
+  .pulse{stroke-dasharray:110 1590;animation:run 5s linear infinite;animation-delay:-4.0s}
+  .rule{animation:rule 5s ease-in-out infinite;animation-delay:-4.0s}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes bolt{0%,100%{opacity:.92}6%{opacity:.35}9%{opacity:1}44%{opacity:.9}47%{opacity:.5}50%{opacity:1}}
+  @keyframes arc{0%,100%{opacity:0}5%{opacity:1}12%{opacity:0}46%{opacity:.9}52%{opacity:0}}
+  @keyframes run{to{stroke-dashoffset:-1700}}
+  @keyframes rule{0%,100%{width:44px}50%{width:150px}}
+  @keyframes grow{0%,100%{transform:scaleX(.2)}50%{transform:scaleX(1)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0a020" stop-opacity=".17"/><stop offset=".6" stop-color="#0f1728" stop-opacity="0"/></linearGradient>
+  <pattern id="d" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#f0a020"/></pattern>
+  <linearGradient id="f" x1="1" y1="0" x2=".4" y2=".9"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <mask id="m"><rect width="600" height="232" fill="url(#f)"/></mask><clipPath id="c"><path d="M12 8H566a26 26 0 0 1 26 26V220a4 4 0 0 1 -4 4H34a26 26 0 0 1 -26 -26V12a4 4 0 0 1 4 -4z"/></clipPath>
+  <filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<path d="M12 8H566a26 26 0 0 1 26 26V220a4 4 0 0 1 -4 4H34a26 26 0 0 1 -26 -26V12a4 4 0 0 1 4 -4z" fill="#101829"/>
+<g clip-path="url(#c)"><rect width="600" height="232" fill="url(#bg)"/><rect width="600" height="232" fill="url(#d)" mask="url(#m)" opacity=".5"/>
+  <rect class="rule" x="8" y="8" width="44" height="3" fill="#f0a020"/></g>
+<path d="M12 8H566a26 26 0 0 1 26 26V220a4 4 0 0 1 -4 4H34a26 26 0 0 1 -26 -26V12a4 4 0 0 1 4 -4z" fill="none" stroke="#fff" stroke-opacity=".1"/>
+<path class="pulse" d="M12 8H566a26 26 0 0 1 26 26V220a4 4 0 0 1 -4 4H34a26 26 0 0 1 -26 -26V12a4 4 0 0 1 4 -4z" fill="none" stroke="#f0a020" stroke-width="2.2" stroke-linecap="round" filter="url(#g)"/>
+<path d="M580 194v18h-18" fill="none" stroke="#f0a020" stroke-opacity=".8"/>
+<path d="M36 34H66a12 12 0 0 1 12 12V76a2 2 0 0 1 -2 2H46a12 12 0 0 1 -12 -12V36a2 2 0 0 1 2 -2z" fill="#f0a020" fill-opacity=".13" stroke="#f0a020" stroke-opacity=".55"/>
+<g transform="translate(45 45) scale(.92)" fill="none" stroke="#f0a020" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" color="#f0a020"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5z"/><path d="M12 6.5v13"/></g>
+<text x="94" y="52" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="13" letter-spacing="2.5" fill="#f0a020">06</text>
+<text x="94" y="76" font-family="'Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif" font-weight="700" font-size="25" fill="#eef2f7">The Silent Data</text>
+<text font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="15" fill="#9aa8ba"><tspan x="34" y="118">My portfolio: living charts, a thinking brain</tspan><tspan x="34" y="141">and a little magic.</tspan></text>
+<rect x="34" y="174" width="62" height="26" rx="3" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="44" y="191.500" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="13" fill="#c9d4e3">React</text><rect x="104" y="174" width="53.6" height="26" rx="3" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="114" y="191.500" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="13" fill="#c9d4e3">Vite</text><rect x="165.6" y="174" width="78.80000000000001" height="26" rx="3" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="175.6" y="191.500" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="13" fill="#c9d4e3">ECharts</text>
+</svg>

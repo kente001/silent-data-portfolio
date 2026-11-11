@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 84" width="390" height="84" role="img" aria-label="Portfolio: silent-data-portfolio">
+<style>.pulse{stroke-dasharray:80 860;animation:r 4s linear infinite}@keyframes r{to{stroke-dashoffset:-940}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<defs><filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0a020" stop-opacity=".2"/><stop offset=".7" stop-color="#0f1728" stop-opacity="0"/></linearGradient></defs>
+<path d="M7 4H366a20 20 0 0 1 20 20V77a3 3 0 0 1 -3 3H24a20 20 0 0 1 -20 -20V7a3 3 0 0 1 3 -3z" fill="#101829"/><path d="M7 4H366a20 20 0 0 1 20 20V77a3 3 0 0 1 -3 3H24a20 20 0 0 1 -20 -20V7a3 3 0 0 1 3 -3z" fill="url(#bg)"/><path d="M7 4H366a20 20 0 0 1 20 20V77a3 3 0 0 1 -3 3H24a20 20 0 0 1 -20 -20V7a3 3 0 0 1 3 -3z" fill="none" stroke="#f0a020" stroke-opacity=".45"/>
+<path class="pulse" d="M7 4H366a20 20 0 0 1 20 20V77a3 3 0 0 1 -3 3H24a20 20 0 0 1 -20 -20V7a3 3 0 0 1 3 -3z" fill="none" stroke="#f0a020" stroke-width="2" stroke-linecap="round" filter="url(#g)"/>
+<path d="M22 20H52a12 12 0 0 1 12 12V62a2 2 0 0 1 -2 2H32a12 12 0 0 1 -12 -12V22a2 2 0 0 1 2 -2z" fill="#f0a020" fill-opacity=".13" stroke="#f0a020" stroke-opacity=".55"/>
+<g transform="translate(31 31) scale(.92)" fill="none" stroke="#f0a020" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" color="#f0a020"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5z"/><path d="M12 6.5v13"/></g>
+<text x="80" y="38" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="12" letter-spacing="2.5" fill="#f0a020">PORTFOLIO</text>
+<text x="80" y="60" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="15" fill="#eef2f7">silent-data-portfolio</text>
+<text x="364" y="50" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace" font-size="18" fill="#f0a020">↗</text>
+</svg>

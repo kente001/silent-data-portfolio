@@ -1,26 +1,30 @@
-<!-- Profile README: goes in a public repo named kente001/kente001, with banner.svg beside it. -->
 <p align="center"><img src="./banner.svg" alt="Kennedy Njoroge: data analyst. I hunt the problems a business can't hear yet." width="100%"></p>
 
-### The silent data
+<img src="./assets/head-about.svg" alt="About" width="100%">
 
-Most problems are loud. The expensive ones are quiet: customers slowly drifting away, fraud that trips no alarm. I find them while they're still small.
+Most problems are loud. The expensive ones are quiet: customers slowly drifting away, fraud that trips no alarm. **I find them while they're still small.**
 
-I'm the only analyst across two businesses at Ahadi Wireless (Konnect), an internet provider and a water delivery service, covering customer, revenue and operations analysis.
+I'm the only analyst across two businesses at Ahadi Wireless (Konnect), an internet provider and a water delivery service, covering customer, revenue and operations analysis. Based in Nairobi, Kenya.
 
-### Selected repos
+<img src="./assets/head-selected-work.svg" alt="Selected work" width="100%">
 
-| | Repo | What it is |
-|---|---|---|
-| `01` | [kente_dw](https://github.com/kente001/kente_dw) | A data warehouse built from scratch with dbt: raw, bronze, silver, gold |
-| `02` | [airflow-kente](https://github.com/kente001/airflow-kente) | The Airflow and Docker setup that runs the warehouse pipeline |
-| `03` | [End-to-End-Data-Analysis-Project](https://github.com/kente001/End-to-End-Data-Analysis-Project) | Extraction, cleaning, EDA and a Looker Studio dashboard |
-| `04` | [Customer-Segmentation-RFM-K-MEANS-](https://github.com/kente001/Customer-Segmentation-RFM-K-MEANS-) | RFM analysis and K-Means clustering for customer segments |
-| `05` | [Excelerate-EDA-Project](https://github.com/kente001/Excelerate-EDA-Project) | EDA of sign-ups and program applications on an online platform |
+<p align="center">
+<a href="https://github.com/kente001/kente_dw"><img src="./assets/card-kente_dw.svg" alt="Kente Data Warehouse: a warehouse built from scratch with dbt" width="49%"></a>
+<a href="https://github.com/kente001/airflow-kente"><img src="./assets/card-airflow-kente.svg" alt="Airflow for Kente: runs the warehouse build every day" width="49%"></a>
+<a href="https://github.com/kente001/End-to-End-Data-Analysis-Project"><img src="./assets/card-End-to-End-Data-Analysis-Project.svg" alt="End-to-End Data Analysis: PostgreSQL to Python to a Looker Studio dashboard" width="49%"></a>
+<a href="https://github.com/kente001/Customer-Segmentation-RFM-K-MEANS-"><img src="./assets/card-Customer-Segmentation-RFM-K-MEANS-.svg" alt="Customer Segmentation: RFM, K-Means and churn prediction" width="49%"></a>
+<a href="https://github.com/kente001/Excelerate-EDA-Project"><img src="./assets/card-Excelerate-EDA-Project.svg" alt="Excelerate EDA: sign-ups and program applications" width="49%"></a>
+<a href="https://github.com/kente001/silent-data-portfolio"><img src="./assets/card-silent-data-portfolio.svg" alt="The Silent Data: my portfolio" width="49%"></a>
+</p>
 
-### Toolkit
+<img src="./assets/head-toolkit.svg" alt="Toolkit" width="100%">
 
-`Python` `pandas` `NumPy` `PostgreSQL` `MySQL` `DuckDB` `Power BI` `Excel` `Looker Studio` `dbt` `Airflow` `Docker`
+<p align="center"><img src="./assets/toolkit.svg" alt="Python, pandas, NumPy, PostgreSQL, MySQL, DuckDB, Power BI, Excel, Looker Studio, dbt, Airflow, Docker" width="100%"></p>
 
-### Contact
+<img src="./assets/head-contact.svg" alt="Contact" width="100%">
 
-[LinkedIn](https://www.linkedin.com/in/kennedy-njoroge-027b6216a/) · Nairobi, Kenya
+<p align="center">
+<a href="https://www.linkedin.com/in/kennedy-njoroge-027b6216a/"><img src="./assets/btn-linkedin.svg" alt="LinkedIn: kennedy-njoroge" width="32%"></a>
+<a href="https://github.com/kente001/silent-data-portfolio"><img src="./assets/btn-portfolio.svg" alt="Portfolio: silent-data-portfolio" width="32%"></a>
+<a href="https://github.com/kente001?tab=repositories"><img src="./assets/btn-github.svg" alt="GitHub: all repositories" width="32%"></a>
+</p>
