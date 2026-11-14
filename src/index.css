@@ -430,3 +430,18 @@ body[data-view="contact"] section{display:grid;place-items:center;padding-top:56
 .backbar{position:fixed;z-index:30;top:calc(env(safe-area-inset-top,0px) + 72px);left:max(20px,calc((100vw - 1100px)/2 + 20px));
   font-family:var(--mono);font-size:.78rem;color:var(--fg);cursor:pointer;padding:.55rem .95rem;
   background-color:rgba(10,14,20,.85);backdrop-filter:blur(8px);animation:view-in .6s ease .3s both}
+/* ---------- hero fit: one full screen, buttons visible without scrolling ---------- */
+/* The hero fills exactly the first screen and centres its content, so spare room is shared above and
+   below instead of piling up at the top. Type and gaps scale with window height so it always fits. */
+header{min-height:calc(100svh - 58px);display:grid;align-items:center;padding-block:clamp(18px,4vh,48px)}
+header > .wrap{width:100%}
+.status{margin-bottom:clamp(.8rem,2.6vh,1.6rem)}
+.hello{margin-bottom:clamp(.5rem,1.8vh,1rem)}
+h1{font-size:clamp(1.9rem,min(4.6vw,7vh),3.5rem);max-width:24ch}
+.sub{margin-top:clamp(.7rem,2.4vh,1.4rem);font-size:clamp(.98rem,min(2.1vw,2.7vh),1.18rem)}
+.cta-row{margin-top:clamp(1rem,3.4vh,2.1rem)}
+@media(min-width:861px){.portrait{max-width:min(360px,52vh)}}
+@media(max-width:860px){header{min-height:0;display:block}}
+
+/* lift only the portrait photo a little; the charts and chips behind it stay put */
+.photo.cutout img{translate:0 -9%}
