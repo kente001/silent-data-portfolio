@@ -1,45 +1,42 @@
-// Hero button portals (styles: "portals" block in index.css).
-//   openPortal('book', 'work')    -> a spellbook rises, ignites, opens, and you fall into its pages
-//   openPortal('gate', 'contact') -> stone doors slam shut, an arch draws itself in light, they swing open
-// After opening, the page shows only that section ("focus view") with a back button.
-// goBack() closes the book / the doors again and returns to the full profile.
+// Hero button transitions (styles: "hack" block in index.css).
+// "See the work" and "Get in touch" each run a short terminal break-in: code rain, typed commands,
+// a decrypt bar, then ACCESS GRANTED and a glitch into the section.
+// After opening, the page shows only that section ("focus view") with a back button; goBack() returns.
 
 const still = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-const KIND = { work: 'book', contact: 'gate' }
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
-const SIGIL =
-  '<svg class="sigil" viewBox="0 0 48 48" aria-hidden="true"><g class="ring"><circle cx="24" cy="24" r="21" stroke-dasharray="2 5"/>' +
-  '<path class="fill" d="M24 .8l2.2 2.2L24 5.2 21.8 3z"/><path class="fill" d="M24 42.8l2.2 2.2-2.2 2.2-2.2-2.2z"/>' +
-  '<path class="fill" d="M.8 24 3 21.8 5.2 24 3 26.2z"/><path class="fill" d="M42.8 24l2.2-2.2 2.2 2.2-2.2 2.2z"/></g>' +
-  '<circle class="ring2" cx="24" cy="24" r="16.5" stroke-dasharray="14 6 3 6"/>' +
-  '<path d="M24 11.5 34.8 17.75v12.5L24 36.5 13.2 30.25v-12.5z" opacity=".5"/>' +
-  '<path class="fill bolt" d="M27 11.5 17.5 26h5.6l-2 10.5L30.6 22h-5.7z"/></svg>'
-
-const SPARKS =
-  '<svg class="sparks" viewBox="0 0 200 260" aria-hidden="true">' +
-  '<path d="M18 40l-14-8 6-12-16-6"/><path d="M184 30l12-12 4 14 16-4"/><path d="M190 200l14 4-6 14 16 6"/>' +
-  '<path d="M12 214l-12 10-2-16-14 2"/><path d="M100 2l6-12 8 10 8-12"/><path d="M96 258l-8 12-6-12-10 10"/></svg>'
-
-const STAR =
-  '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 2l3 15 11-9-7 12 15 4-15 4 7 12-11-9-3 15-3-15-11 9 7-12L2 24l15-4-7-12 11 9z"/></svg>'
-
-// half an arch: pillar up, curve to the centre. Drawn once, mirrored for the right door.
-const ARCH =
-  '<svg viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">' +
-  '<path pathLength="1" d="M34 200V86C34 44 62 26 100 22"/><path pathLength="1" d="M46 200V92C46 58 68 42 100 38"/>' +
-  '<path pathLength="1" d="M34 120h12M34 150h12M34 180h12"/><path pathLength="1" d="M72 200V120c0-14 12-22 28-24"/></svg>'
-
-const MARKUP = {
-  book:
-    '<div class="veil"></div><div class="rays"></div>' +
-    '<div class="stage"><div class="tome">' + SPARKS +
-    '<div class="pages"></div><div class="leaf"></div>' +
-    `<div class="cover"><div class="front"><div class="plate">${SIGIL}<b>Selected work</b><i>the silent data</i></div></div><div class="back"></div></div>` +
-    '</div></div><div class="flash"></div>',
-  gate:
-    '<div class="glowback"></div>' +
-    `<div class="door l">${ARCH}</div><div class="door r">${ARCH}</div>` +
-    `<div class="lintel">${STAR}<i>speak, friend, and enter</i></div><div class="seam"></div>`,
+// each line: [command, result] or [command, 'BAR'] for a progress bar
+const SCRIPTS = {
+  work: {
+    title: 'silent-data://work',
+    lines: [
+      ['connect silent-data://work', 'OK'],
+      ['authenticating visitor', 'TRUSTED'],
+      ['decrypting case files', 'BAR'],
+      ['scanning for quiet anomalies', '5 FOUND'],
+      ['rendering charts', 'OK'],
+    ],
+    granted: 'ACCESS GRANTED',
+  },
+  contact: {
+    title: 'silent-data://contact',
+    lines: [
+      ['open secure channel --to ken', 'OK'],
+      ['handshake', 'ACCEPTED'],
+      ['encrypting line', 'BAR'],
+      ['locating Nairobi, KE', 'ONLINE'],
+    ],
+    granted: 'CHANNEL OPEN',
+  },
+  back: {
+    title: 'silent-data://home',
+    lines: [
+      ['close session', 'OK'],
+      ['restoring full profile', 'BAR'],
+    ],
+    granted: 'PROFILE RESTORED',
+  },
 }
 
 let busy = false
@@ -61,75 +58,96 @@ function setView(id) {
   if (!id && backBtn) { backBtn.remove(); backBtn = null }
 }
 
-function mount(kind, classes) {
-  const el = document.createElement('div')
-  el.className = `portal ${kind} ${classes}`
-  el.setAttribute('aria-hidden', 'true')
-  el.innerHTML = MARKUP[kind]
-  document.body.appendChild(el)
-  void el.offsetWidth // commit the starting state before any class changes
-  return el
+// falling code behind the terminal; returns a stop function
+function codeRain(cv) {
+  const ctx = cv.getContext('2d')
+  const glyphs = '01ABCDEF<>/{}[]$#=+*アカサタナハマヤラワ'
+  const size = 16
+  let cols = 0, drops = [], raf = 0, last = 0
+  const fit = () => {
+    cv.width = cv.clientWidth; cv.height = cv.clientHeight
+    cols = Math.ceil(cv.width / size)
+    drops = Array.from({ length: cols }, () => Math.random() * -40)
+  }
+  fit()
+  const tick = (now) => {
+    raf = requestAnimationFrame(tick)
+    if (now - last < 45) return
+    last = now
+    ctx.fillStyle = 'rgba(5,8,13,.22)'
+    ctx.fillRect(0, 0, cv.width, cv.height)
+    ctx.font = size + 'px ui-monospace,Consolas,monospace'
+    for (let i = 0; i < cols; i++) {
+      const y = drops[i] * size
+      ctx.fillStyle = Math.random() < 0.06 ? '#f0a020' : Math.random() < 0.5 ? '#22b8cf' : '#1c8fa3'
+      ctx.fillText(glyphs[(Math.random() * glyphs.length) | 0], i * size, y)
+      drops[i] = y > cv.height && Math.random() > 0.96 ? 0 : drops[i] + 1
+    }
+  }
+  raf = requestAnimationFrame(tick)
+  return () => cancelAnimationFrame(raf)
 }
 
-// run [delay, fn] steps on one timeline
-function play(steps) {
+async function runTerminal(script, onGranted, speed = 1) {
   busy = true
-  steps.forEach(([t, fn]) => setTimeout(fn, t))
-  setTimeout(() => { busy = false }, steps[steps.length - 1][0] + 50)
+  const el = document.createElement('div')
+  el.className = 'hack'
+  el.setAttribute('aria-hidden', 'true')
+  el.innerHTML =
+    '<canvas></canvas>' +
+    `<div class="term"><div class="term-bar"><b></b><b></b><b></b><span>${script.title}</span></div><div class="term-body"></div></div>` +
+    `<div class="granted"><span data-text="${script.granted}">${script.granted}</span></div>`
+  document.body.appendChild(el)
+  const stopRain = codeRain(el.querySelector('canvas'))
+  const body = el.querySelector('.term-body')
+  void el.offsetWidth
+  el.classList.add('in')
+  await sleep(220 * speed)
+
+  for (const [cmd, result] of script.lines) {
+    const ln = document.createElement('div')
+    ln.className = 'ln cur'
+    ln.innerHTML = '<span class="p">&gt;</span> <span class="c"></span>'
+    body.appendChild(ln)
+    const c = ln.querySelector('.c')
+    for (const ch of cmd) { c.textContent += ch; await sleep(11 * speed) }
+    await sleep(90 * speed)
+    if (result === 'BAR') {
+      ln.insertAdjacentHTML('beforeend', ' <span class="bar"><i></i></span><span class="pct">0%</span>')
+      const fill = ln.querySelector('.bar i'), pct = ln.querySelector('.pct')
+      for (let p = 0; p <= 100; p += 4 + ((Math.random() * 9) | 0)) {
+        fill.style.width = p + '%'; pct.textContent = p + '%'
+        await sleep(26 * speed)
+      }
+      fill.style.width = '100%'; pct.textContent = '100%'; pct.classList.add('ok')
+    } else {
+      ln.insertAdjacentHTML('beforeend', ` <span class="dots">....</span> <span class="ok">${result}</span>`)
+    }
+    ln.classList.remove('cur')
+    await sleep(110 * speed)
+  }
+
+  el.classList.add('ok')          // ACCESS GRANTED, glitching
+  await sleep(620 * speed)
+  onGranted()                     // swap the page underneath
+  el.classList.add('out')         // tear the overlay away
+  await sleep(480)
+  stopRain()
+  el.remove()
+  busy = false
 }
 
+// `kind` is kept for the callers' sake; the section id picks the script
 export function openPortal(kind, targetId) {
   if (busy || !document.getElementById(targetId)) return
   if (still()) return setView(targetId)
-
-  if (kind === 'book') {
-    const el = mount('book', '')
-    const add = (c) => () => el.classList.add(c)
-    play([
-      [20, add('in')],        // book rises out of the dark
-      [750, add('lit')],      // sigil ignites, sparks crackle
-      [1400, add('open')],    // cover swings open, light pours out
-      [2550, add('dive')],    // fall into the pages
-      [2900, () => setView(targetId)],
-      [3000, add('out')],
-      [3650, () => el.remove()],
-    ])
-  } else {
-    const el = mount('gate', 'open nofx')
-    const add = (c) => () => el.classList.add(c)
-    play([
-      [20, () => el.classList.remove('nofx', 'open')], // doors swing shut
-      [700, add('thud')],                              // they land
-      [760, add('draw')],                              // the arch draws itself in light
-      [1800, add('seam')],                             // a seam of light climbs the join
-      [2250, () => { setView(targetId); el.classList.add('open', 'slow') }], // and they part
-      [4000, () => el.remove()],
-    ])
-  }
+  runTerminal(SCRIPTS[targetId] || SCRIPTS.work, () => setView(targetId))
 }
 
 export function goBack() {
-  const id = document.body.dataset.view
-  if (busy || !id) return
+  if (busy || !document.body.dataset.view) return
   if (still()) return setView(null)
-
-  if (KIND[id] === 'book') {
-    const el = mount('book', 'open nofx')
-    play([
-      [20, () => { el.classList.remove('nofx'); el.classList.add('in') }],
-      [500, () => { setView(null); el.classList.remove('open') }], // the book closes
-      [1650, () => el.classList.add('out')],
-      [2250, () => el.remove()],
-    ])
-  } else {
-    const el = mount('gate', 'open nofx')
-    play([
-      [20, () => el.classList.remove('nofx', 'open')],
-      [700, () => { el.classList.add('thud'); setView(null) }],
-      [1150, () => el.classList.add('open', 'slow')],
-      [2800, () => el.remove()],
-    ])
-  }
+  runTerminal(SCRIPTS.back, () => setView(null), 0.7)
 }
 
 // Escape goes back; a nav link clicked inside a focus view returns to the full page first.

@@ -47,8 +47,8 @@ export function Hero() {
             <h1>I'm a data analyst who hunts the problems a business <span className="sig">can't hear yet</span>.</h1>
             <p className="sub">Most problems are loud. The expensive ones are quiet: customers slowly drifting away, fraud that trips no alarm. I find them while they're still small.</p>
             <div className="cta-row">
-              <a className="btn primary" href="#work" onClick={go('book', 'work')}><Icon name="book" />See the work</a>
-              <a className="btn" href="#contact" onClick={go('gate', 'contact')}><Icon name="arch" />Get in touch</a>
+              <a className="btn primary" href="#work" onClick={go('hack', 'work')}><Icon name="term" />See the work</a>
+              <a className="btn" href="#contact" onClick={go('hack', 'contact')}><Icon name="signal" />Get in touch</a>
             </div>
           </div>
 
